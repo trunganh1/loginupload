@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../icon/css/font-awesome.min.css">
+  <style media="screen">
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-push-2">
+      <div class="text-center" id='logout'>
+        <a href="/logout" onclick ="return confirm('Bạn Thật Sự Muốn LogOut')">
+        <form method="POST" action="/logout">
+          <button  type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-log-out">LogOut</span>
+         </button>
+        </form>
+        </a>
+      </div>
+      <hr width="50%"> </hr>
+      <table class="table table-hover">
+        <thead>
+          <tr class="bg-success text-center">
+            <!-- <td colspan="6"> <a href="add">Thêm Video</a></td> -->
+            <div class="text-center">
+              <a href="add"><button type="button" class="btn btn-success">Thêm Video</button></a>
+            </div>
+            <hr width="50%"> </hr>
+            <div class="alert alert-success text-center" role="alert">Lưu Ý: KEY Là Mã Video Được Lấy Về Từ Vimeo.com</div>
+          </tr>
+          <hr width="50%"></hr>
+          <tr class="bg-primary">
+            <th>ID</th>
+            <th>Tiêu Đề</th>
+            <th>Mô Tả</th>
+            <th>Key</th>
+            <th>Ảnh</th>
+            <th>Edit - Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.rows.forEach(function(item){ %>
+            <tr>
+              <td><%= item.id%></td>
+              <td><%= item.tieude%></td>
+              <td><%= item.mota%></td>
+              <td>1<%= item.key%></td>
+              <td><img width=" 150px" src=" ../upload/<%= item.image%>" alt=""></td>
+              <td><a href="edit/<%= item.id%>"><span class="fa fa-edit">Edit</span></a> - <a onclick ="return confirm('Bạn Thật Sự Muốn Delete')" href="delete/<%= item.id%>"><span class="fa fa-remove"> Delete</span></a></td>
+            </tr>
+        <%  }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

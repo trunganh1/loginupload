@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../icon/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-push-2 table-responsive">
+      <div class="jumbotron text-center">
+        <div class="alert alert-success" role="alert">Lưu Ý: Upload Video Lên Vimeo.com Để Lấy Được ID </br> Và Lấy ID Để Truyền Vào Mã Video</div>
+        <hr width="50%"></hr>
+      </div>
+      <!-- <h2 class="bg-primary text-center">Bảng Sửa Video</h2> -->
+      <form class="" action="../edit/<%= data.id%>" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="form-title">Tiêu Đề</label>
+          <input type="text" name="tieude" value="<%= data.tieude %>" id="form-title" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="form-key">Mã Video</label>
+          <input type="text" name="key" value="<%= data.key%>" class="form-control" id="key">
+        </div>
+        <div class="form-group">
+          <label for="form-description">Mô Tả</label>
+          <textarea name="mota" rows="5" id="mota" class="form-control"><%= data.mota%></textarea>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            Ảnh Củ: <img src="../../upload/<%= data.image%>" width="150px" alt="">
+          </div>
+          <div class="col-md-6">
+            <label class="btn btn-default btn-file">Ảnh Mới</label>
+            <input type="file" name="uploadfile" value="">
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" name="ok" class="btn btn-success">Submit</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
